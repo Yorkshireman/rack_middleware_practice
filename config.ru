@@ -1,3 +1,5 @@
-require_relative './message_server'
+require_relative './message_app'
+require_relative './middleware/message_setter'
 
-run MessageServer.new
+use MessageSetter
+run MessageApp.new # ('run' is the same as 'use')
