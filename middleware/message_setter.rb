@@ -6,14 +6,7 @@ class MessageSetter
 
   def call(env)
     puts "==========MessageSetter called"
+    env['MESSAGE'] = 'Hello, Mars!'
     @app.call(env)
-  end
-
-  private
-
-  def printenv(env)
-    puts "=========ENV WITHIN MESSAGE_SETTER CALL METHOD=============="
-    puts "#{env}"
-    puts "======================ENV END==============================="
   end
 end
