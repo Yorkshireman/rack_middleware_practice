@@ -6,7 +6,7 @@ class MessageSetter
 
   def call(env)
     puts "==========MessageSetter called"
-    env['MESSAGE'] = 'Hello, Mars!'
+    env['MESSAGE'] = env['QUERY_STRING']
     @app.call(env)
   end
 end
