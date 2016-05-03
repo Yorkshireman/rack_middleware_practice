@@ -1,9 +1,3 @@
-class MessageServer
-  def call(env)
-    [200, {}, ['Hello, World!']]
-  end
-end
+require_relative './message_server'
 
-map '/' do
-  run MessageServer.new
-end
+run MessageServer.new
