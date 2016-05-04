@@ -9,7 +9,13 @@ class MessageSetter
     else
       env['MESSAGE'] = env['QUERY_STRING']
     end
-    @app.call(env)
+
+    begin
+      @app.call(env)
+    rescue
+      puts "CAUGHT"
+      Rack::Response.new([env['MESSAGE'], ' (caught an exception along the way!)'], 200, {})
+    end
   end
 
   private
